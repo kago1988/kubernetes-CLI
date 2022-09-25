@@ -4,6 +4,7 @@
 Here is the hierarchy when using Kubernetes:  
 Cluster > Node > Pod > Container > App / Server / DB  
 
+Frequently used commands for the CLI are: 
 ```
 flags often used:  
 -f = force  
