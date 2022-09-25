@@ -6,7 +6,8 @@ Cluster > Node > Pod > Container > App / Server / DB
 
 ```
 kubectl get svc  # kubectl get service  
-kubectl get ns  # kubectl get ns  
+kubectl get svc -n develop1  # get the service with name develop1
+kubectl get ns  # kubectl get namespace 
 kubectl get pod  #  
 kubectl get  
 kubectl get  
