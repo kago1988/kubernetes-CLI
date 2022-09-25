@@ -18,7 +18,7 @@ kubectl get pods -n develop1  # list the pods from name develop1
 kubectl get deploy -n develop1  # get deploy from name develop1  
 kubectl get quota -n develop1  # get quota from name develop1  
 kubectl get nodes -o wide  # list nodes with a lot of details   
-kubectl get  
+kubectl get sc  # list storage classes  
 
 
 kubectl create ns develop1 # Create Namespace  
