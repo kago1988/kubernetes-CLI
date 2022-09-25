@@ -12,3 +12,9 @@ kubectl get
 kubectl get  
 kubectl get  
 kubectl get  
+
+# Create Namespaces  
+kubectl create ns develop1  
+
+# Deploy all K8s objects from develop1  
+kubectl get all -n develop1
