@@ -18,5 +18,6 @@ kubectl get
 
 kubectl create ns develop1 # Create Namespace  
 kubectl delete ns develop1 # Delete Namespace  
-kubectl get all -n develop1 # Deploy all K8s objects from develop1  
+kubectl get all -n develop1 # List all objects from namespace develop1  
+kubectl apply -f kube-manifest # Deploy all K8s objects from develop1  
 ```
