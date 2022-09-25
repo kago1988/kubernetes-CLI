@@ -8,6 +8,7 @@ Cluster > Node > Pod > Container > App / Server / DB
 flags often used:  
 -f = force  
 -n = name  
+-o = output format  
 
 kubectl get svc  # list services  
 kubectl get svc -n develop1  # list the service from name develop1
