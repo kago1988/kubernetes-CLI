@@ -5,8 +5,8 @@ Here is the hierarchy when using Kubernetes:
 Cluster > Node > Pod > Container > App / Server / DB  
 
 ```
-kubectl get svc  # kubectl get service  
-kubectl get svc -n develop1  # get the service with name develop1
+kubectl get svc  # list services  
+kubectl get svc -n develop1  # list the service with name develop1
 kubectl get ns  # list the namespace  
 kubectl get pod  #  
 kubectl get  
