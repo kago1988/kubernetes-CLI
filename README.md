@@ -11,8 +11,8 @@ kubectl get ns  # list the namespace
 kubectl get nodes  # list the nodes  
 kubectl get pods  # list the pods  
 kubectl get pods -n develop1  # list the pods from namespace develop1 
-kubectl get  
-kubectl get  
+kubectl get deploy -n develop1  # get deploy from namespace develop1  
+kubectl get quota -n develop1  # get quota from namespace develop1  
 kubectl get  
 kubectl get  
 
