@@ -7,9 +7,78 @@ Cluster > Node > Pod > Container > App / Server / DB
 Frequently used commands for the CLI are: 
 ```
 flags often used:  
--f = force  
+-f = file (not force)   
 -n = name  
 -o = output format  
+
+kubectl create ns test 
+kubectl get ns test 
+kubectl create deployment testdeployment --image=ubuntu
+kubectl create deployment testdeployment --image=ubuntu -n test 
+kubectl get deployment 
+kubectl get deployment -n test 
+kubectl get deployment -n test -o yaml 
+kubectl get deployment testdeployment -n test -o yaml 
+kubectl get replicaset -n test -o yaml 
+kubectl apply -f deployment.yaml -n test 
+kubectl delete deployment testdeployment -n test 
+kubectl rollout restart deployment helmdeployment-myhelmchart -n test 
+
+helm create myhelmchart 
+helm template ./helm/ 
+helm install helmdeployment ./helm/ -n test 
+helm install helmdeployment ./helm/ -n test > helmdeployment.yaml 
+helm install helmdeployment ./helm/ -n test --dry-run > helmdeployment.yaml 
+helm template helmdeployment ./helm/ -n test --dry-run > helmdeployment.yaml 
+helm upgrade helmdeployment ./helm/ -n test > helmdeployment.yaml 
+helm upgrade --install helmdeployment ./helm/ -n test > helmdeployment.yaml 
+
+helm upgrade helmdeployment ./helm/myhelmchart/ -n test > helmdeployment.yaml 
+kubectl get events -n test 
+
+# logging 
+kubectl describe 
+kubectl describe pod helmdeployment-myhelmchart-6945c6d77d-4pcmm -n test 
+kubectl logs helmdeployment-myhelmchart-59875c87cb-fqtsb -n test  
+kubectl describe deployment helmdeployment-myhelmchart -n test 
+
+# helm delete 
+helm list -n test 
+helm uninstall helmdeployment -n test 
+
+# install CSI pod 
+helm repo add csi-secrets-store-provider-azure https://azure.github.io/secrets-store-csi-driver-provider-azure/charts 
+helm install csi csi-secrets-store-provider-azure/csi-secrets-store-provider-azure -f csi-driver.yaml -n kube-system 
+
+kubectl exec -it podname -n namespace -- /bin/sh
+
+# prometheus install 
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install [RELEASE_NAME] prometheus-community/kube-prometheus-stack
+
+# Prometheus integration 
+kubectl api-resources 
+kubectl get serviceaccount ... -n test -o yaml 
+kubectl get secret ... -n test -o yaml 
+kubectl get rolebinding -n test -o yaml 
+kubectl get rb -n test -n test -o yaml 
+kubectl get prometheus -A 
+kubectl get prometheus -n test 
+kubectl port-forward service/michaels-prometheus-stack-prometheus 9090:9090 -n test 
+kubectl port-forward -n prometheus prometheus-prometheus-kube-prometheus-prometheus-0 9090:9090 
+kubectl port-forward svc/prometheus 9090:9090 -n test
+kubectl --namespace test port-forward svc/grafana 3000
+kubectl get service-monitor michaels-prometheus -n test 
+kubectl get prometheusrules -A 
+kubectl get prometheusrules michaels-prometheus -n test 
+helm install [RELEASE_NAME] prometheus-community/kube-prometheus-stack
+kubectl get secret mymonitor-grafana -n test 
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update 
+helm install [RELEASE_NAME] prometheus-community/kube-prometheus-stack 
+kubectl version --short 
+kubectl --namespace test port-forward svc/mymonitor-grafana 3000:80
 
 kubectl get svc  # list services  
 kubectl get svc -n develop1  # list the service from name develop1
